@@ -1,5 +1,9 @@
 <p>products works!</p>
 <h4 style="text-align: center;">{{productList.length}}</h4>
+{{myPromise | async}}
+{{myPromise2 | async}}
+<!-- {{productList}}
+{{productList | json}} -->
 <table class="table">
     <thead>
         <tr>
@@ -8,6 +12,7 @@
             <th scope="col">Product Description</th>
             <th scope="col">Product Price</th>
             <th scope="col">Status</th>
+            <th scope="col">Created At</th>
         </tr>
     </thead>
     <tbody>
@@ -15,7 +20,10 @@
             <ng-container *ngFor="let item of productList; let i = index;trackBy:trackProducts">
                 <tr>
                     <th scope="row">{{i + 1}}</th>
-                    <td>{{item.productName}}</td>
+                    <!-- <td>{{item.productName | titlecase}}</td> -->
+                    <!-- <td>{{item.productName | uppercase}}</td> -->
+                    <!-- <td>{{item.productName | lowercase}}</td> -->
+                    <td>{{item.productName | lowercase | slice:0:2 | addNameTitle:item.productPrice}}</td>
                     <td>{{item.productDescription}}</td>
                     <td>{{item.productPrice}}</td>
                     <td>
@@ -34,7 +42,7 @@
                             {{item.status}}
                         </span> -->
                     </td>
-
+                    <td>{{item.createdAt | date:'MMM-d-y h:mm:ss a'}}</td>
                 </tr>
             </ng-container>
         </ng-container>

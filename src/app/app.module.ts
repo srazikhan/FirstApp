@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MyPipePipe } from './core/pipes/my-pipe.pipe';
 import { AuthService } from './core/services/auth.service';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
@@ -14,11 +13,12 @@ import { ProductsComponent } from './components/products/products.component';
 import { BlogsComponent } from './components/blogs/blogs.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FormsModule } from '@angular/forms';
+import { AddNameTitlePipe } from './core/pipes/add-name-title.pipe';
+import { ProductService } from './core/services/product.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyPipePipe,
     HeaderComponent,
     FooterComponent,
     HomeComponent,
@@ -26,14 +26,15 @@ import { FormsModule } from '@angular/forms';
     EnquiryComponent,
     ProductsComponent,
     BlogsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AddNameTitlePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [AuthService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
