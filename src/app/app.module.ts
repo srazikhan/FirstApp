@@ -13,6 +13,7 @@ import { EnquiryComponent } from './components/enquiry/enquiry.component';
 import { ProductsComponent } from './components/products/products.component';
 import { BlogsComponent } from './components/blogs/blogs.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   imgTitle:string = "image ex";
   imgUrl:string = "https://static.digit.in/product/284c81498a93a82db7b5db6600494c20bee4f18e.jpeg";
   imgAlt:string = "Image";
+  myInput:string = '';
   constructor(private authService:AuthService) {
     this.authService.welcomeMessage();
   }
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit {
 
   showMessage(countries:any){
     console.log("Welcome Good Morning");
+    this.myInput = 'Welcome Good Morning';
     console.log(countries);
   }
 

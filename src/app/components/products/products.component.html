@@ -1,1 +1,66 @@
 <p>products works!</p>
+<h4 style="text-align: center;">{{productList.length}}</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Description</th>
+            <th scope="col">Product Price</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngIf="productList.length > 0">
+            <ng-container *ngFor="let item of productList; let i = index;trackBy:trackProducts">
+                <tr>
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{item.productName}}</td>
+                    <td>{{item.productDescription}}</td>
+                    <td>{{item.productPrice}}</td>
+                    <td>
+                        <span [ngClass]="{'success':item.status =='active','pending':item.status =='inActive'}"
+                        [attr.myData]="'testing'">
+                            {{item.status}}
+                        </span>
+                        <!-- <span [ngStyle]="{'color': item.status =='active' ? 'green':'red','font-size':'20px'}">
+                            {{item.status}}
+                        </span> -->
+
+                        <!-- <span [class.success]="item.status =='active'">
+                            {{item.status}}
+                        </span> -->
+                        <!-- <span [style.color]="item.status =='active' ? 'green':'red'">
+                            {{item.status}}
+                        </span> -->
+                    </td>
+
+                </tr>
+            </ng-container>
+        </ng-container>
+        <ng-container *ngIf="productList.length == 0">
+            <tr>
+                <td colspan="5" style="color: red;">Records not found</td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
+<hr>
+
+<div class="card">
+    <div class="card-body">
+        <ng-container [ngSwitch]="todayClass">
+            <ng-container *ngSwitchCase="'html'">
+                <h5 class="card-title">Today class is for {{todayClass}}</h5>
+            </ng-container>
+            <ng-container *ngSwitchCase="'css'">
+                <h5 class="card-title">Today class is for {{todayClass}}</h5>
+            </ng-container>
+            <ng-container *ngSwitchCase="'javascript'">
+                <h5 class="card-title">Today class is for {{todayClass}}</h5>
+            </ng-container>
+            <ng-container *ngSwitchDefault>Today is holiday</ng-container>
+        </ng-container>
+
+    </div>
+</div>
