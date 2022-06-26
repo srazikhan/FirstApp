@@ -17,6 +17,12 @@ import { AddNameTitlePipe } from './core/pipes/add-name-title.pipe';
 import { ProductService } from './core/services/product.service';
 import { EnquiryDetailsComponent } from './components/enquiry-details/enquiry-details.component';
 import { BlogDetailsComponent } from './components/blog-details/blog-details.component';
+import { PocComponent } from './components/poc/poc.component';
+import { ChartsComponent } from './components/charts/charts.component';
+import { NotificationComponent } from './components/notification/notification.component';
+import { GoogleMapComponent } from './components/google-map/google-map.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -31,12 +37,18 @@ import { BlogDetailsComponent } from './components/blog-details/blog-details.com
     PageNotFoundComponent,
     AddNameTitlePipe,
     EnquiryDetailsComponent,
-    BlogDetailsComponent
+    BlogDetailsComponent,
+    PocComponent,
+    ChartsComponent,
+    NotificationComponent,
+    GoogleMapComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgxChartsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
