@@ -1,4 +1,6 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProductService } from 'src/app/core/services/product.service';
 
 @Component({
   selector: 'app-blogs',
@@ -6,13 +8,20 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
   styleUrls: ['./blogs.component.scss']
 })
 export class BlogsComponent implements OnChanges,OnInit,DoCheck,AfterContentInit,AfterContentChecked,AfterViewInit,AfterViewChecked,OnDestroy {
+  productList:any[]=[];
+  constructor(private router:Router,private priductService:ProductService,private aRoute:ActivatedRoute) {
+    this.aRoute.params.subscribe((res:any)=>{
+      console.log("*********");
+      console.log(res);
+    })
+  }
 
-  constructor() { }
   ngOnChanges(changes:SimpleChanges): void {
     console.log('ngOnChanges is executed')
   }
   ngOnInit(): void {
-    console.log('ngOnInit is executed')
+    console.log('ngOnInit is executed');
+    this.productList = this.priductService.getProducts();
   }
   ngDoCheck(): void {
     console.log('ngDoCheck is executed')
@@ -28,6 +37,17 @@ export class BlogsComponent implements OnChanges,OnInit,DoCheck,AfterContentInit
   }
   ngAfterViewChecked(): void {
     console.log('ngAfterViewChecked is executed')
+  }
+  getData(inputData:any){
+    console.log(inputData);
+    setTimeout(()=>{
+      this.router.navigate(['products']);
+      //this.router.navigate(['blogs/121/ssss']);
+    },3000)
+  }
+
+  viewBlogDetails(item:any){
+    this.router.navigate(['blog-details'],{queryParams:{'blogName': item.productName,'blogPrice':item.productPrice}})
   }
   ngOnDestroy(): void {
     console.log('ngOnDestroy is executed')

@@ -1,1 +1,40 @@
 <p>blogs works!</p>
+
+<input type="text" #myInput>
+<td><button type="button" class="btn btn-primary btn-sm" (click)="getData(myInput.value)">Get Value</button></td>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Description</th>
+            <th scope="col">Product Price</th>
+            <th scope="col">Created At</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngIf="productList.length > 0">
+            <ng-container *ngFor="let item of productList; let i = index;">
+                <tr>
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{item.productName}}</td>
+                    <td>{{item.productDescription}}</td>
+                    <td>{{item.productPrice}}</td>
+                    <td>{{item.createdAt | date:'MMM-d-y h:mm:ss a'}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" [routerLink]="['/blog-details']" [queryParams]="{ blogName: item.productName,blogPrice:item.productPrice}">View Blog T</button>
+                        <button type="button" class="btn btn-primary" (click)="viewBlogDetails(item)">View Blog C</button>
+                    </td>
+
+                </tr>
+            </ng-container>
+        </ng-container>
+        <ng-container *ngIf="productList.length == 0">
+            <tr>
+                <td colspan="5" style="color: red;">Records not found</td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>

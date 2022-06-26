@@ -15,6 +15,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { FormsModule } from '@angular/forms';
 import { AddNameTitlePipe } from './core/pipes/add-name-title.pipe';
 import { ProductService } from './core/services/product.service';
+import { EnquiryDetailsComponent } from './components/enquiry-details/enquiry-details.component';
+import { BlogDetailsComponent } from './components/blog-details/blog-details.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ProductService } from './core/services/product.service';
     ProductsComponent,
     BlogsComponent,
     PageNotFoundComponent,
-    AddNameTitlePipe
+    AddNameTitlePipe,
+    EnquiryDetailsComponent,
+    BlogDetailsComponent
   ],
   imports: [
     BrowserModule,
