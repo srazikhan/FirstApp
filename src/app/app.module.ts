@@ -23,6 +23,7 @@ import { NotificationComponent } from './components/notification/notification.co
 import { GoogleMapComponent } from './components/google-map/google-map.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { ObservableExamplesComponent } from './components/observable-examples/observable-examples.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     PocComponent,
     ChartsComponent,
     NotificationComponent,
-    GoogleMapComponent
+    GoogleMapComponent,
+    ObservableExamplesComponent
   ],
   imports: [
     BrowserModule,

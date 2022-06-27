@@ -8,24 +8,28 @@ import { EnquiryComponent } from './components/enquiry/enquiry.component';
 import { GoogleMapComponent } from './components/google-map/google-map.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotificationComponent } from './components/notification/notification.component';
+import { ObservableExamplesComponent } from './components/observable-examples/observable-examples.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PocComponent } from './components/poc/poc.component';
 import { ProductsComponent } from './components/products/products.component';
+import { AuthGuard } from './core/guards/auth.guard';
+import { Auth2Guard } from './core/guards/auth2.guard';
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "home", component: HomeComponent },
   { path: "about-us", component: AboutUsComponent },
   { path: "enquiry", component: EnquiryComponent },
-  { path: "products", component: ProductsComponent },
+  { path: "products", component: ProductsComponent, canActivate:[AuthGuard] },
   { path: "blogs/:id/:blogName", component: BlogsComponent },
   { path: "blog-details", component: BlogDetailsComponent },
   {
-    path: "poc",component:PocComponent, children: [
+    path: "poc",component:PocComponent, canActivate:[AuthGuard], canActivateChild:[Auth2Guard], children: [
       { path: "", component: ChartsComponent },
       { path: "charts", component: ChartsComponent },
       { path: "notification", component: NotificationComponent },
       { path: "google-map", component: GoogleMapComponent },
+      { path: "Observable", component: ObservableExamplesComponent },
     ]
   },
   { path: "**", component: PageNotFoundComponent }
