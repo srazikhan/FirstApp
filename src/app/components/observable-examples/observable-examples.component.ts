@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, concat, forkJoin, from, interval, merge, Observable, of, range, Subject, Subscription, timer } from 'rxjs';
+import { AsyncSubject, BehaviorSubject, concat, forkJoin, from, interval, merge, Observable, of, range, ReplaySubject, Subject, Subscription, timer } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ajax } from 'rxjs/ajax';
 
@@ -11,6 +11,12 @@ import { ajax } from 'rxjs/ajax';
 })
 export class ObservableExamplesComponent implements OnInit {
   userList: any;
+  mySubject$ = new Subject();
+  myBehaviorSubject$ = new BehaviorSubject<any>(null);
+  myReplaySubject$ = new ReplaySubject();
+  // myReplaySubject$ = new ReplaySubject(2); no of item from buffer
+  myAsyncSubject$ = new AsyncSubject();
+
   constructor() {
     // const obs1 = new Observable((observer)  => {
     //   observer.next(42);
@@ -25,7 +31,62 @@ export class ObservableExamplesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.observableEx();
+    // this.observableEx();
+    //BehaviorSubject examples
+    // this.myBehaviorSubject$.next('HTML');
+    // this.myBehaviorSubject$.subscribe((res:any)=>{
+    //   console.log(res)
+    // },(err)=>{
+    //   console.log(err)
+    // },()=>{
+    //   console.log('complete')
+    // })
+    // this.myBehaviorSubject$.complete();
+    // this.myBehaviorSubject$.next('Javascript');
+
+    //ReplaySubject examples
+    // this.myReplaySubject$.next('HTML');
+    // this.myReplaySubject$.next('Javascript');
+    // this.myReplaySubject$.subscribe((res:any)=>{
+    //   console.log(res)
+    // },(err)=>{
+    //   console.log(err)
+    // },()=>{
+    //   console.log('complete')
+    // })
+    // this.myReplaySubject$.next('Java');
+    // this.myReplaySubject$.next('Python');
+
+    // console.log('2nd Sub *****************************8')
+    // this.myReplaySubject$.subscribe((res:any)=>{
+    //   console.log(res)
+    // },(err)=>{
+    //   console.log(err)
+    // },()=>{
+    //   console.log('complete')
+    // })
+
+    this.myAsyncSubject$.next('HTML');
+    this.myAsyncSubject$.next('Javascript');// Javascript
+    this.myAsyncSubject$.complete();
+
+    this.myAsyncSubject$.error('err in observable');
+
+    this.myAsyncSubject$.subscribe((res:any)=>{
+      console.log(res)
+    },(err)=>{
+      console.log(err)
+    },()=>{
+      console.log('complete')
+    })
+   
+    
+
+    // this.mySubject$.next(1);
+    // this.mySubject$.next(2);
+    // this.mySubject$.subscribe((res:any)=>{
+    //   console.log(res)
+    // })
   }
 
   observableEx() {
@@ -93,16 +154,16 @@ export class ObservableExamplesComponent implements OnInit {
     // merged.subscribe(x => console.log(x));
 
      //creating observable using subject operator
-    const sub1 = new Subject();
-    const sub2 = new BehaviorSubject<any>('I m good');
+    // const sub1 = new Subject();
+    // const sub2 = new BehaviorSubject<any>('I m good');
 
-    sub1.subscribe((res:any)=>{
-      console.log("***"+res)
-    })
+    // sub1.subscribe((res:any)=>{
+    //   console.log("***"+res)
+    // })
 
-    sub2.subscribe((res:any)=>{
-      console.log(res)
-    })
+    // sub2.subscribe((res:any)=>{
+    //   console.log(res)
+    // })
    
   }
 

@@ -12,6 +12,7 @@ import { ObservableExamplesComponent } from './components/observable-examples/ob
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PocComponent } from './components/poc/poc.component';
 import { ProductsComponent } from './components/products/products.component';
+import { ReactiveFormExamplesComponent } from './components/reactive-form-examples/reactive-form-examples.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { Auth2Guard } from './core/guards/auth2.guard';
 
@@ -30,6 +31,7 @@ const routes: Routes = [
       { path: "notification", component: NotificationComponent },
       { path: "google-map", component: GoogleMapComponent },
       { path: "Observable", component: ObservableExamplesComponent },
+      { path: "reactive-form", component: ReactiveFormExamplesComponent },
     ]
   },
   { path: "**", component: PageNotFoundComponent }

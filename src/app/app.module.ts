@@ -12,7 +12,7 @@ import { EnquiryComponent } from './components/enquiry/enquiry.component';
 import { ProductsComponent } from './components/products/products.component';
 import { BlogsComponent } from './components/blogs/blogs.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddNameTitlePipe } from './core/pipes/add-name-title.pipe';
 import { ProductService } from './core/services/product.service';
 import { EnquiryDetailsComponent } from './components/enquiry-details/enquiry-details.component';
@@ -24,6 +24,7 @@ import { GoogleMapComponent } from './components/google-map/google-map.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ObservableExamplesComponent } from './components/observable-examples/observable-examples.component';
+import { ReactiveFormExamplesComponent } from './components/reactive-form-examples/reactive-form-examples.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ObservableExamplesComponent } from './components/observable-examples/ob
     ChartsComponent,
     NotificationComponent,
     GoogleMapComponent,
-    ObservableExamplesComponent
+    ObservableExamplesComponent,
+    ReactiveFormExamplesComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +53,7 @@ import { ObservableExamplesComponent } from './components/observable-examples/ob
     FormsModule,
     NgxChartsModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

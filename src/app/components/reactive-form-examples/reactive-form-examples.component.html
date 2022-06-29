@@ -1,0 +1,33 @@
+<p>reactive-form-examples works!</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <form [formGroup]="signUpFrom" (ngSubmit)="createAccount()">
+                <div>
+                    <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                    <input type="text" class="form-control"  
+                    placeholder="Enter first name" formControlName="firstName">
+                  </div>
+                <div>
+                    <label for="exampleFormControlInput1" class="form-label">last Name</label>
+                    <input type="text" class="form-control" 
+                     placeholder="Enter last name" formControlName="lastName">
+                  </div>
+                <div>
+                    <label for="exampleFormControlInput1" class="form-label">Email</label>
+                    <input type="email" class="form-control" 
+                    placeholder="Enter email" formControlName="email">
+                  </div>
+                <div>
+                    <label for="exampleFormControlInput1" class="form-label">Password</label>
+                    <input type="password" class="form-control"
+                    placeholder="create password" formControlName="email">
+                  </div>
+                  <div>
+                    <button type="submit" class="btn btn-primary mb-3">SignUp</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
