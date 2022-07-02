@@ -1,0 +1,46 @@
+<p>template-driven-form works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div class="card">
+                <div class="card-header" appChangeBg>Template Driven Form With Directives</div>
+                <div class="card-body">
+                    {{signUpFrom.value | json}}
+                    <form #signUpFrom="ngForm" (ngSubmit)="createAccount()">
+                        <div>
+                            <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                            <input type="text" #firstName="ngModel" id="firstName" name="firstName" [(ngModel)]="signUpData.firstName" required class="form-control" placeholder="Enter first name">
+                        </div>
+                        <ng-container *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+                            <p *ngIf="firstName.errors.required" class="error">Email is required</p>
+                        </ng-container>
+                        <div>
+                            <label for="exampleFormControlInput1" class="form-label">last Name</label>
+                            <input type="text" class="form-control" required  id="lastName" #lastName="ngModel" name="lastName" [(ngModel)]="signUpData.lastName" placeholder="Enter last name">
+                        </div>
+                        <ng-container *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
+                            <p *ngIf="lastName.errors.required" class="error">Last Name is required</p>
+                        </ng-container>
+                        <div>
+                            <label for="exampleFormControlInput1" class="form-label">Email</label>
+                            <input type="email" class="form-control" required #email="ngModel" name="email" [(ngModel)]="signUpData.email" placeholder="Enter email">
+                        </div>
+                        <ng-container *ngIf="email.errors && (email.dirty || firstName.touched)">
+                            <p *ngIf="email.errors.required" class="error">Email is required</p>
+                        </ng-container>
+                        <div>
+                            <label for="exampleFormControlInput1" class="form-label">Password</label>
+                            <input type="password" class="form-control" required  #password="ngModel" name="password" [(ngModel)]="signUpData.password" placeholder="create password">
+                        </div>
+                        <ng-container *ngIf="password.errors && (password.dirty || password.touched)">
+                            <p *ngIf="password.errors.required" class="error">Password is required</p>
+                        </ng-container>
+                        <div style="margin-top: 20px;">
+                            <button type="submit" #saveBtn class="btn btn-primary mb-3">SignUp</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

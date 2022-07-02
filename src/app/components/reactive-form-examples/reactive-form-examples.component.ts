@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form-examples',
@@ -8,7 +8,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class ReactiveFormExamplesComponent implements OnInit {
   signUpFrom!: FormGroup;
+  productFrom!: FormGroup;
   isSubmitted: boolean = false;
+  submitted: boolean = false;
   constructor(private fb: FormBuilder) {
 
     //creating from using FormGroup() and  FormControl()
@@ -26,6 +28,12 @@ export class ReactiveFormExamplesComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
     })
+
+    this.productFrom = this.fb.group({
+      category: ['', [Validators.required, Validators.maxLength(10)]],
+      productItem: this.fb.array([this.createItem()])
+    })
+
   }
 
   ngOnInit(): void {
@@ -38,8 +46,36 @@ export class ReactiveFormExamplesComponent implements OnInit {
 
     //we can also update form control
     //this.signUpFrom.get('lastName')?.setValue('Razi');
+  
   }
 
+  get f() {
+    return this.signUpFrom.controls
+  }
+  get pf() {
+    return this.productFrom.controls
+  }
+  get pitems(){
+    return this.productFrom.controls['productItem'] as FormArray;
+  }
+  createItem():FormGroup{
+    return this.fb.group({
+      productName: ['',[Validators.required]],
+      productPrice: ['',[Validators.required]],
+    })
+  }
+
+  addNewProduct(){
+    console.log(this.pitems.length)
+    if(this.pitems.length <= 5){
+      this.pitems.push(this.createItem())
+    }else{
+      alert('You are not allowed to add more than 5 product at a time')
+    }
+  }
+  removeProduct(index:number){
+    this.pitems.removeAt(index);
+  }
   updateBySetValue() {
     this.signUpFrom.setValue({
       "firstName": "sajjad",
@@ -53,16 +89,25 @@ export class ReactiveFormExamplesComponent implements OnInit {
       "email": "sajjad@gmail.com"
     })
   }
-  get f() {
-    return this.signUpFrom.controls
-  }
+
+
   createAccount() {
     console.log('form is submitted');
     this.isSubmitted = true;
-    console.log(this.signUpFrom.valid);
+    // console.log(this.signUpFrom.valid);
+  
     if (!this.signUpFrom.valid) return
 
     console.log(this.signUpFrom.value);
+  }
+
+  createProduct() {
+    console.log('form is submitted');
+    this.submitted = true;
+    // console.log(this.productFrom.valid);
+    if (!this.productFrom.valid) return
+
+    console.log(this.productFrom.value);
   }
 
 }

@@ -25,6 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ObservableExamplesComponent } from './components/observable-examples/observable-examples.component';
 import { ReactiveFormExamplesComponent } from './components/reactive-form-examples/reactive-form-examples.component';
+import { TemplateDrivenFormComponent } from './components/template-driven-form/template-driven-form.component';
+import { ChangeBgDirective } from './core/directives/change-bg.directive';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { ReactiveFormExamplesComponent } from './components/reactive-form-exampl
     NotificationComponent,
     GoogleMapComponent,
     ObservableExamplesComponent,
-    ReactiveFormExamplesComponent
+    ReactiveFormExamplesComponent,
+    TemplateDrivenFormComponent,
+    ChangeBgDirective
   ],
   imports: [
     BrowserModule,
