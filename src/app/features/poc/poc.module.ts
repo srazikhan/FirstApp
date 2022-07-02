@@ -10,8 +10,7 @@ import { GoogleMapComponent } from './google-map/google-map.component';
 import { ObservableExamplesComponent } from './observable-examples/observable-examples.component';
 import { ReactiveFormExamplesComponent } from './reactive-form-examples/reactive-form-examples.component';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -27,9 +26,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
   imports: [
     CommonModule,
     PocRoutingModule,
-    FormsModule,
-    NgxChartsModule,
-    ReactiveFormsModule
+    SharedModule
   ]
 })
 export class PocModule { }

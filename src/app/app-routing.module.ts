@@ -13,10 +13,11 @@ const routes: Routes = [
   { path: "about-us", component: AboutUsComponent },
   { path: "enquiry", component: EnquiryComponent },
 
-  { path: 'poc', loadChildren: () => import('./features/poc/poc.module').then(m => m.PocModule), canActivate:[AuthGuard], canActivateChild:[Auth2Guard] },
+  { path: 'auth', loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule) },
   { path: 'dashboard', loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule) },
   { path: 'blogs', loadChildren: () => import('./features/blogs/blogs.module').then(m => m.BlogsModule) },
   { path: 'products', loadChildren: () => import('./features/products/products.module').then(m => m.ProductsModule) },
+  { path: 'poc', loadChildren: () => import('./features/poc/poc.module').then(m => m.PocModule), canActivate:[AuthGuard], canActivateChild:[Auth2Guard] },
   { path: "**", component: PageNotFoundComponent }
 ];
 

@@ -5,6 +5,7 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.component';
 import { AddNameTitlePipe } from 'src/app/core/pipes/add-name-title.pipe';
 import { ChangeBgDirective } from 'src/app/core/directives/change-bg.directive';
+import { WidgetModule } from 'src/app/widget/widget.module';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { ChangeBgDirective } from 'src/app/core/directives/change-bg.directive';
   imports: [
     CommonModule,
     ProductsRoutingModule,
+    WidgetModule
   ]
 })
 export class ProductsModule { }

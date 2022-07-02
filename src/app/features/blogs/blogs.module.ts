@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { BlogsRoutingModule } from './blogs-routing.module';
 import { BlogsComponent } from './blogs.component';
 import { BlogDetailsComponent } from './blog-details/blog-details.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { WidgetModule } from 'src/app/widget/widget.module';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { BlogDetailsComponent } from './blog-details/blog-details.component';
   ],
   imports: [
     CommonModule,
-    BlogsRoutingModule
+    BlogsRoutingModule,
+    SharedModule,
+    WidgetModule
   ]
 })
 export class BlogsModule { }
