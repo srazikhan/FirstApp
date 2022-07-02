@@ -6,8 +6,7 @@ import { ProductService } from 'src/app/core/services/product.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss'],
-  // providers:[ProductService]
+  styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnChanges,OnInit,DoCheck,AfterContentInit,AfterContentChecked,AfterViewInit,AfterViewChecked,OnDestroy{
   productList:product[]=[];

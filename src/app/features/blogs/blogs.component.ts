@@ -47,7 +47,7 @@ export class BlogsComponent implements OnChanges,OnInit,DoCheck,AfterContentInit
   }
 
   viewBlogDetails(item:any){
-    this.router.navigate(['blog-details'],{queryParams:{'blogName': item.productName,'blogPrice':item.productPrice}})
+    this.router.navigate(['blogs/blog-details'],{queryParams:{'blogName': item.productName,'blogPrice':item.productPrice}})
   }
   ngOnDestroy(): void {
     console.log('ngOnDestroy is executed')

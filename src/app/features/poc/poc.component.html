@@ -1,1 +1,17 @@
-<p>poc works!</p>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-3">
+        <ul class="list-group">
+            <li appChangeBg class="list-group-item" routerLink="/poc/charts">Charts</li>
+            <li appChangeBg class="list-group-item" routerLink="/poc/notification">Notification</li>
+            <li appChangeBg class="list-group-item"  routerLink="/poc/google-map">Google Map</li>
+            <li appChangeBg class="list-group-item"  routerLink="/poc/Observable">Observable</li>
+            <li appChangeBg class="list-group-item"  routerLink="/poc/reactive-form">Reactive Form</li>
+            <li appChangeBg class="list-group-item"  routerLink="/poc/template-driven-form">Template Driven Form</li>
+          </ul>
+      </div>
+      <div class="col-9">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
