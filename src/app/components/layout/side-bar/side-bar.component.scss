@@ -1,0 +1,10 @@
+.list-group{
+    height: 100vh;
+    background-color: gray;
+    border-radius: 0px;
+}
+.list-group > .list-group-item {
+    color: #eeeeee;
+    background-color: gray;
+    border: 1px solid rgb(231 231 231 / 13%);
+}

@@ -1,0 +1,31 @@
+<!-- <p>api-integration works!</p>
+<h2>Without async</h2>
+{{userList1 | json}}
+<hr>
+<h2>With async</h2>
+{{userList2 | async | json}} -->
+<button type="button" class="btn btn-success" (click)="createUser()">Create New User</button>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#SN</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of userList1; let i =index;">
+        <th scope="row">{{i+1}}</th>
+        <td>{{item.first_name}}</td>
+        <td>{{item.last_name}}</td>
+        <td>{{item.email}}</td>
+        <td>
+            <button type="button" class="btn btn-primary btn-sm" (click)="editUser(item)">Edit</button>
+            <button type="button" class="btn btn-danger btn-sm" (click)="deleteUser(item)">Delete</button>
+        </td>
+      </tr>
+  
+    </tbody>
+  </table>

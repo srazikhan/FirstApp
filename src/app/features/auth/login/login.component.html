@@ -1,0 +1,40 @@
+<section class="main">
+<div class="container">
+    <div class="row justify-content-center" >
+      <div class="col-5">
+        <div class="card">
+          <div class="card-header">Login</div>
+          <div class="card-body">
+            <form [formGroup]="loginFrom" (ngSubmit)="checkLogin()">
+              <div>
+                <label for="exampleFormControlInput1" class="form-label">Email</label>
+                <input type="email" class="form-control" placeholder="Enter email" formControlName="email"
+                  [ngClass]="{ 'is-invalid': isSubmitted && f['email']['errors'] }">
+                <div *ngIf="isSubmitted && f['email']['errors']">
+                  <!-- {{f['email']['errors'] | json}} -->
+                  <div *ngIf="f['email']['errors']['required']">Email is required</div>
+                  <div *ngIf="f['email']['errors']['email']">Enter valid Email</div>
+                </div>
+              </div>
+              <div>
+                <label for="exampleFormControlInput1" class="form-label">Password</label>
+                <input type="password" class="form-control" placeholder="create password" formControlName="password"
+                  [ngClass]="{ 'is-invalid': isSubmitted && f['password']['errors'] }">
+                <div *ngIf="isSubmitted && f['password']['errors']">
+                  <!-- {{f['password']['errors'] | json}} -->
+                  <div *ngIf="f['password']['errors']['required']">Password is required</div>
+                  <div *ngIf="f['password']['errors']['minlength']">minlength should be 3 chars</div>
+                  <div *ngIf="f['password']['errors']['maxlength']">maxlength should be 20 chars</div>
+                </div>
+              </div>
+              <div style="margin-top: 20px;display: grid;">
+                <button type="submit" class="btn btn-primary mb-3">Login</button>
+                <a href="javascript:void(0)" routerLink="/auth/sign-up">Create an new account</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

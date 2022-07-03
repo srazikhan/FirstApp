@@ -11,6 +11,8 @@ import { ObservableExamplesComponent } from './observable-examples/observable-ex
 import { ReactiveFormExamplesComponent } from './reactive-form-examples/reactive-form-examples.component';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ApiIntegrationComponent } from './api-integration/api-integration.component';
+import { WidgetModule } from 'src/app/widget/widget.module';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { SharedModule } from 'src/app/shared/shared.module';
     GoogleMapComponent,
     ObservableExamplesComponent,
     ReactiveFormExamplesComponent,
-    TemplateDrivenFormComponent
+    TemplateDrivenFormComponent,
+    ApiIntegrationComponent
   ],
   imports: [
     CommonModule,
     PocRoutingModule,
-    SharedModule
+    SharedModule,
+    WidgetModule
   ]
 })
 export class PocModule { }

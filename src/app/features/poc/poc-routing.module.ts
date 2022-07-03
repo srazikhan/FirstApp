@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AlertComponent } from './alert/alert.component';
+import { ApiIntegrationComponent } from './api-integration/api-integration.component';
 import { ChartsComponent } from './charts/charts.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
 import { NotificationComponent } from './notification/notification.component';
@@ -18,7 +19,8 @@ const routes: Routes = [
     { path: "google-map", component: GoogleMapComponent },
     { path: "Observable", component: ObservableExamplesComponent },
     { path: "reactive-form", component: ReactiveFormExamplesComponent },
-    { path: "template-driven-form", component: TemplateDrivenFormComponent }
+    { path: "template-driven-form", component: TemplateDrivenFormComponent },
+    { path: "api-integration", component: ApiIntegrationComponent},
   ] },
  
 ];

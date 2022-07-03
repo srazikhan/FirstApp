@@ -99,6 +99,11 @@ export class ReactiveFormExamplesComponent implements OnInit {
     if (!this.signUpFrom.valid) return
 
     console.log(this.signUpFrom.value);
+    // let payload = this.signUpFrom.value;
+    // this.http.post('https://reqres.in/api/users', payload, {}).subscribe((res: any) => {
+    //   console.log(res);
+    //   console.log('user created')
+    // })
   }
 
   createProduct() {
