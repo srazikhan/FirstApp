@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   loginFrom!: FormGroup;
   isSubmitted: boolean = false;
-  constructor(private fb: FormBuilder,private router:Router) {
+  constructor(private fb: FormBuilder,private router:Router,private toastr: ToastrService) {
     //creating from using FormBuilder Service
     this.loginFrom = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -52,10 +53,10 @@ export class LoginComponent implements OnInit {
       activeUser.token = "xyz.xyz.xyz";
       delete activeUser.password;
       sessionStorage.setItem('activeUser',JSON.stringify(activeUser));
-      alert('login success');
+      this.toastr.success('login success');
       this.router.navigate(['/main/dashboard']);
     }else{
-      alert('invalid email or password');
+      this.toastr.error('invalid email or password');
     }
     // let payload = this.signUpFrom.value;
     // this.http.post('https://reqres.in/api/users', payload, {}).subscribe((res: any) => {

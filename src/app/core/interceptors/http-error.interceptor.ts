@@ -8,11 +8,12 @@ import {
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private toastr: ToastrService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     console.log('Error Interceptor is executed')
@@ -29,16 +30,16 @@ export class HttpErrorInterceptor implements HttpInterceptor {
       errorInfo = `Server Side Error -Status ${error.status}- MSG ${error.message}`;
       switch(error.status){
         case 404:
-          alert('invalid API')
+          this.toastr.error('invalid API')
           break
         case 500:
-          alert('Internel Server Error')
+          this.toastr.error('Internel Server Error')
           break
         case 401:
-          alert('unauthorized');
+          this.toastr.error('unauthorized');
           break
         default:
-          alert('Unknown Error');
+          this.toastr.error('Unknown Error');
       }
     }
     console.log(errorInfo)
