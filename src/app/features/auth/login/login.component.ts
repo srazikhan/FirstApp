@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-
+import { environment } from 'src/environments/environment'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  buildConfirmation:any= environment.buildForm;
   loginFrom!: FormGroup;
   isSubmitted: boolean = false;
   constructor(private fb: FormBuilder,private router:Router,private toastr: ToastrService) {
