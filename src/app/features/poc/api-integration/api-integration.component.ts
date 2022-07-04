@@ -39,10 +39,37 @@ export class ApiIntegrationComponent implements OnInit {
     this.http.get('https://reqres.in/api/users?page=2', {}).subscribe((res: any) => {
       this.userList1 = res.data;
     })
-    
-    this.http.get('https://jsonplaceholder.typicode.com/posts', {}).subscribe((res: any) => {
+
+    // this.http.get('https://reqres.in/12312api12/123123use@#2313', {}).pipe(catchError((error:HttpErrorResponse)=>{
+    //   let errorInfo = '';
+    //     if(error.error instanceof ErrorEvent){
+    //       errorInfo = `Client Side Error ${error.message}`
+    //     }else{
+    //       errorInfo = `Server Side Error -Status ${error.status}- MSG ${error.message}`;
+    //       if(error.status == 404){
+    //         alert('invalid API')
+    //       }
+    //     }
+    //     console.log(errorInfo)
+    //     return throwError(errorInfo)
+    // })).subscribe()
+
+    // this.http.get('https://reqres.in/12312api12/123123use@#2313', {}).pipe(catchError((error: HttpErrorResponse) => {
+    //  return this.handleHttpError(error);
+    // })).subscribe()
+
+    // this.http.get('https://jsonplaceholder.typicode.com/231231@posts234324234234', {}).pipe(catchError((error: HttpErrorResponse) => {
+    //   return this.handleHttpError(error);
+    //  })).subscribe((res: any) => {
+    //   console.log(res)
+    // });
+
+    this.http.get('https://reqres.in/12312api12/123123use@#2313', {}).subscribe()
+
+    this.http.get('https://jsonplaceholder.typicode.com/231231@posts234324234234', {}).subscribe((res: any) => {
       console.log(res)
     });
+    
   }
 
   createUser() {
@@ -83,4 +110,18 @@ export class ApiIntegrationComponent implements OnInit {
     })
   }
 
+  handleHttpError(error: HttpErrorResponse) {
+    let errorInfo = '';
+    if (error.error instanceof ErrorEvent) {
+      errorInfo = `Client Side Error ${error.message}`
+    } else {
+      errorInfo = `Server Side Error -Status ${error.status}- MSG ${error.message}`;
+      if (error.status == 404) {
+        alert('invalid API')
+      }
+    }
+    console.log(errorInfo)
+    return throwError(errorInfo)
+  }
 }
+

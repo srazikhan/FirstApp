@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  styleUrls: ['./sign-up.component.scss'],
+  
 })
 export class SignUpComponent implements OnInit {
   signUpFrom!: FormGroup;
   isSubmitted: boolean = false;
-  constructor(private fb: FormBuilder,private router:Router) {
+  constructor(private fb: FormBuilder,private router:Router,private toastr: ToastrService) {
 
     //creating from using FormGroup() and  FormControl()
     this.signUpFrom = new FormGroup({
@@ -22,7 +24,8 @@ export class SignUpComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   get f() {
     return this.signUpFrom.controls
@@ -38,11 +41,13 @@ export class SignUpComponent implements OnInit {
       return el.email == formData.email;
     })
     if(userExist){
-      alert('User alreadt exist');
+      //alert('User alreadt exist')
+      this.toastr.error('User alreadt exist')
     }else{
-      alluser.push(formData)
+      alluser.push(formData);
       sessionStorage.setItem('users', JSON.stringify(alluser));
-      alert('user created');
+      //alert('user created')
+      this.toastr.success('user created')
       this.router.navigate(['auth/login']);
     }
     // let payload = this.signUpFrom.value;

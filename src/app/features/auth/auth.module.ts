@@ -8,7 +8,6 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { WidgetModule } from 'src/app/widget/widget.module';
 
-
 @NgModule({
   declarations: [
     AuthComponent,
@@ -19,7 +18,7 @@ import { WidgetModule } from 'src/app/widget/widget.module';
     CommonModule,
     AuthRoutingModule,
     SharedModule,
-    WidgetModule
+    WidgetModule,
   ]
 })
 export class AuthModule { }
