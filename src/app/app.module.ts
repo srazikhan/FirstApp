@@ -30,7 +30,7 @@ import { MainComponent } from './components/main/main.component';
     MainComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
